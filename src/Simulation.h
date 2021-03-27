@@ -1,7 +1,6 @@
 #ifndef SIMULATION_H
 #define SIMULATION_h
 
-#include <stdio.h>
 #include <iostream>
 
 #include <allegro5/allegro.h>
@@ -21,12 +20,12 @@ public:
 	bool isOver(void);
 	bool getEvent(void);
 	void dispatcher(void);
+	void destroyAll();
 	
 private:
 	int displayWidth;
 	int displayHeight;
 	int fps;
-	int frameCount;
 
 	bool running;
 	//Capaz se puede hacer una lista
@@ -37,15 +36,23 @@ private:
 	ALLEGRO_EVENT_QUEUE* queue;
 	ALLEGRO_EVENT ev;
 	ALLEGRO_TIMER* simTimer;
+	ALLEGRO_BITMAP* background;
 
 	bool initAllegro(void);
 	bool initDisplay(void);
 	bool initTimer(void);
 	bool initEvents(void);
+	bool loadBackground(void);
 
-	void flipSimulation(void);
+	void startMoving();
+	void stopMoving();
+
+	void refresh(void);
+	void draw(void);
+
+	void closeDisplay(void);
+
 };
-
 
 
 #endif // !SIMULATION_H

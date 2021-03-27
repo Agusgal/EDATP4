@@ -8,17 +8,15 @@ int main(void)
 {
 	Simulation sim;
 	
-	//Init all
+	sim.initAll();
 	while (!sim.isOver())
 	{
 		if (sim.getEvent())
 		{
-		
-			//dispatcher con evento guardado en ev. 
+			sim.dispatcher();
 		}
-	
 	}
-	//destroy
+	sim.destroyAll();
 
 	return 0;
 }

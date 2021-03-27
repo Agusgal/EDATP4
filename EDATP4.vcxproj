@@ -139,14 +139,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Config.cpp" />
+    <ClCompile Include="src\Coordinates.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Simulation.cpp" />
     <ClCompile Include="src\Worms.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Config.h" />
+    <ClInclude Include="src\Coordinates.h" />
     <ClInclude Include="src\Simulation.h" />
     <ClInclude Include="src\Worms.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Scenario.png" />
+    <Image Include="res\wjump\wjump-F1.png" />
+    <Image Include="res\wjump\wjump-F10.png" />
+    <Image Include="res\wjump\wjump-F2.png" />
+    <Image Include="res\wjump\wjump-F3.png" />
+    <Image Include="res\wjump\wjump-F4.png" />
+    <Image Include="res\wjump\wjump-F5.png" />
+    <Image Include="res\wjump\wjump-F6.png" />
+    <Image Include="res\wjump\wjump-F7.png" />
+    <Image Include="res\wjump\wjump-F8.png" />
+    <Image Include="res\wjump\wjump-F9.png" />
+    <Image Include="res\wwalking\wwalk-F1.png" />
+    <Image Include="res\wwalking\wwalk-F10.png" />
+    <Image Include="res\wwalking\wwalk-F11.png" />
+    <Image Include="res\wwalking\wwalk-F12.png" />
+    <Image Include="res\wwalking\wwalk-F13.png" />
+    <Image Include="res\wwalking\wwalk-F14.png" />
+    <Image Include="res\wwalking\wwalk-F15.png" />
+    <Image Include="res\wwalking\wwalk-F2.png" />
+    <Image Include="res\wwalking\wwalk-F3.png" />
+    <Image Include="res\wwalking\wwalk-F4.png" />
+    <Image Include="res\wwalking\wwalk-F5.png" />
+    <Image Include="res\wwalking\wwalk-F6.png" />
+    <Image Include="res\wwalking\wwalk-F7.png" />
+    <Image Include="res\wwalking\wwalk-F8.png" />
+    <Image Include="res\wwalking\wwalk-F9.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

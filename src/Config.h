@@ -1,0 +1,13 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+
+enum states {IDLE, START_MOVING_RIGHT, START_MOVING_LEFT, MOVE_RIGHT, MOVE_LEFT, STATES_N};
+
+#define DISPLAY_WIDTH 1920
+#define DISPLAY_HEIGHT 696
+#define FPS 50
+
+#define DEBUG 
+
+#endif // !CONFIG_H

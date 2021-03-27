@@ -144,6 +144,7 @@
     <ClCompile Include="src\Worms.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Config.h" />
     <ClInclude Include="src\Simulation.h" />
     <ClInclude Include="src\Worms.h" />
   </ItemGroup>

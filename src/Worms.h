@@ -17,6 +17,7 @@ public:
 
 	void startMovingLeft(void);
 	void startMovingRight(void);
+	void startJumping(void);
 	void update(void);
 
 	ALLEGRO_BITMAP* getSprite(void);
@@ -24,8 +25,13 @@ public:
 private:
 	Coordinates point;
 	int state;
+	int direction;
 	int frameCount;
 	ALLEGRO_BITMAP* sprite;
+
+
+	void walk(void);
+	void jump(void);
 };
 
 #endif // !WORMS_H

@@ -4,37 +4,58 @@
 #include "Config.h"
 
 
-void Coordinates::setCoordinates(int x, int y);
+
+Coordinates::Coordinates()
+{
+	x = START_POSITION_X;
+	y = START_POSITION_Y;
+}
+
+void Coordinates::setCoordinates(float x, float y)
 {
 	this->x = x;
 	this->y = y;
 }
 
-void Coordinates::translate(Coordinates& c)
+void Coordinates::setX(float x)
 {
-
-
+	this->x = x;
 }
 
-float Coordinates::getDistance(Coordinates& c) 
+void Coordinates::setY(float y)
 {
-    return  (float) (sqrt(pow(c.x - x, 2) + pow((c.y - y), 2)));
+	this->y = y;
 }
 
-float Coordinates::getAngle(Coordinates& c)
+float Coordinates::getX(void)
 {
-
+	return x;
 }
 
-bool Coordinates::checkSpace()
+float Coordinates::getY(void)
 {
-	if(c.x>START_RING && c.x<FINISH_RING)
+	return y;
+}
+
+void Coordinates::translate(float offsetX, float offsetY)
+{
+	x += offsetX;
+	y += offsetY;
+}
+
+void Coordinates::checkSpace(void)
+{
+	if (x < START_RING)
 	{
-		return false;
+		x = START_RING;
 	}
-	else 
+	else if (x > FINISH_RING)
 	{
-		return true;
+		x = FINISH_RING;
+	}
+	if (y < START_POSITION_Y)
+	{
+		y = START_POSITION_Y;
 	}
 }
-	
+

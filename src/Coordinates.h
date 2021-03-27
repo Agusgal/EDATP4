@@ -5,18 +5,24 @@
 class Coordinates
 {
 public:
-	void setCoordinates(int x, int y);
-	float getDistance(Coordinates& c);
-	float getAngle(Coordinates& c);
-	void translate(Coordinates& c);
+
+	Coordinates();
+
+	void setCoordinates(float x, float y);
+	void setX(float x);
+	void setY(float y);
+
+	float getX(void);
+	float getY(void);
+
+	void translate(float offsetX, float offsetY = 0);
+
+	void checkSpace(void);
 
 private:
 	float x;
 	float y;
-	float angle;
-
-	bool checkSpace(Coordinates& c);
-}
+};
 
 
 

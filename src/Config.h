@@ -8,7 +8,7 @@
 
 enum action {WALK, JUMP};
 enum states {IDLE, START_MOVING_RIGHT, START_MOVING_LEFT, MOVE_RIGHT, MOVE_LEFT, STATES_N};
-
+enum directions { LEFT, RIGHT };
 
 
 #define DISPLAY_WIDTH 1920
@@ -16,6 +16,16 @@ enum states {IDLE, START_MOVING_RIGHT, START_MOVING_LEFT, MOVE_RIGHT, MOVE_LEFT,
 #define STAR_RING	701
 #define FINISH_RING	1212
 #define FPS 50
+
+#define START_POSITION_X	955		
+#define START_POSITION_Y	616
+
+#define STEP_RIGHT_LEFT		9
+#define STEP_X_JUMP			2.25
+
+#define SPEED		4.5
+#define GRAVITY		0.24
+#define ANGLE		1.047197551
 
 
 

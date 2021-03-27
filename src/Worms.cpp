@@ -24,7 +24,7 @@ void Worm::setPosition(int x, int y)
 bool Worm::setSprite(std::string path)
 {
 	sprite = al_load_bitmap(path.c_str());
-	if (!sprite)
+	if (!sprite) 
 	{
 		fprintf(stderr, "Failed to create animation bitmap!\n");
 		return true;
@@ -128,12 +128,12 @@ void Worm::update(void)
 		}
 		break;
 	default:
-	{
-		state = IDLE;
-		frameCount = 0;
-	}
-	break;
-	}
+		{
+			state = IDLE;
+			frameCount = 0;
+		}
+		break;
+	}	
 }
 
 
@@ -147,7 +147,7 @@ void Worm::walk(void)
 	}
 	point.translate(step);
 	point.checkSpace();
-
+	
 }
 
 //Actualiza salto frame a frame.

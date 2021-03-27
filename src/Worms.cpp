@@ -2,6 +2,15 @@
 
 #include <cmath>
 
+/**********************************************
+WORM
+constructor de la clase worm
+
+Recibe : void
+
+Retorna: void
+
+**********************************************/
 Worm::Worm()
 {
 	point = Coordinates();
@@ -11,16 +20,36 @@ Worm::Worm()
 	frameCount = 0;
 }
 
+
+/**********************************************
+SETESTATE
+Funcion que configura el estado del worm
+
+Recibe : int con la informacion del estado
+
+Retorna: void
+
+**********************************************/
 void Worm::setState(int state)
 {
 	this->state = state;
 }
+
 
 void Worm::setPosition(int x, int y)
 {
 	point.setCoordinates(x, y);
 }
 
+/**********************************************
+SETSPRITE
+Funcion que carga el sprite correspondiente en el worm
+
+Recibe : string, que contiene la ruta del sprite
+
+Retorna: bool, siendo False el indicador de que se cargo correctamente
+
+**********************************************/
 bool Worm::setSprite(std::string path)
 {
 	sprite = al_load_bitmap(path.c_str());
@@ -32,30 +61,64 @@ bool Worm::setSprite(std::string path)
 	return false;
 }
 
+/**********************************************
+STARTMOVINGLEFT
+Funcion que actualiza el estado y la direccion del worm(izquierda)
 
+Recibe : void
+
+Retorna: void
+
+**********************************************/
 void Worm::startMovingLeft(void)
 {
 	state = START_MOVING_LEFT;
 	direction = LEFT;
 }
 
+/**********************************************
+STARTMOVINGRIGHT
+Funcion que actualiza el estado y la direccion del worm(derecha)
+
+Recibe : void
+
+Retorna: void
+
+**********************************************/
 void Worm::startMovingRight(void)
 {
 	state = START_MOVING_RIGHT;
 	direction = RIGHT;
 }
 
-void Worm::startMovingLeft(void)
-{
-	state = START_MOVING_LEFT;
-}
+//
+//void Worm::startMovingLeft(void)
+//{
+//	state = START_MOVING_LEFT;
+//}
 
+/**********************************************
+STARTJUMPING
+Funcion que actualiza el estado (salto)
+
+Recibe : void
+
+Retorna: void
+
+**********************************************/
 void Worm::startJumping(void)
 {
 	state = START_JUMPING;
 }
 
+/**********************************************
+UPDATE
+Funcion que comprueba los estados de los worms , para que pueda controlar sus frame y de esta manera podamos movernos
+Recibe : void
 
+Retorna: void
+
+**********************************************/
 void Worm::update(void)
 {
 	switch (state)
@@ -136,8 +199,15 @@ void Worm::update(void)
 	}	
 }
 
+/**********************************************
+WALK
+Funcion que mueve worm a la izquierda o derecha en step pixeles
 
-//Mueve worm a la izquierda o derecha en step pixeles.
+Recibe : void
+
+Retorna: void
+
+**********************************************/
 void Worm::walk(void)
 {
 	float step = STEP_RIGHT_LEFT;	//El step esta definido en Config.h.
@@ -150,7 +220,15 @@ void Worm::walk(void)
 	
 }
 
-//Actualiza salto frame a frame.
+/**********************************************
+WALK
+Funcion que hace  saltar a los worms frame a frame.es
+
+Recibe : void
+
+Retorna: void
+
+**********************************************/
 void Worm::jump(void)
 {
 	float stepX = STEP_X_JUMP;	//El step en x esta definido en Config.h.

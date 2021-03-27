@@ -17,10 +17,11 @@ class Simulation
 public:
 	Simulation();
 	
+	bool initAll(void);
 	bool isOver(void);
 	bool getEvent(void);
 	void dispatcher(void);
-
+	
 private:
 	int displayWidth;
 	int displayHeight;
@@ -41,6 +42,8 @@ private:
 	bool initDisplay(void);
 	bool initTimer(void);
 	bool initEvents(void);
+
+	void flipSimulation(void);
 };
 
 

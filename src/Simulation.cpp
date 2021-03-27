@@ -134,6 +134,29 @@ bool Simulation::loadBackground(void)
     return false;
 }
 
+void Simulation::dispatcher(void)
+{
+    switch (ev.type)
+    {
+    case ALLEGRO_EVENT_KEY_DOWN:
+        this->startMoving();
+        break;
+
+    case ALLEGRO_EVENT_KEY_UP:
+        this->stopMoving();
+        break;
+
+    case ALLEGRO_EVENT_TIMER:
+        this->refresh();
+        break;
+
+    case ALLEGRO_EVENT_DISPLAY_CLOSE:
+        running = false;
+        break;
+    default:
+        break;
+    }
+}
 
 bool Simulation::getEvent(void)
 {
@@ -168,30 +191,6 @@ void Simulation::startMoving(void)
     }
     
 
-}
-
-void Simulation::dispatcher(void)
-{
-    switch(ev.type)
-    {
-    case ALLEGRO_EVENT_KEY_DOWN:
-        this->startMoving();
-        break;
-
-    case ALLEGRO_EVENT_KEY_UP:
-        this->stopMoving();
-        break;
-    
-    case ALLEGRO_EVENT_TIMER:
-        this->refresh();
-        break;
-
-    case ALLEGRO_EVENT_DISPLAY_CLOSE:
-        running = false;
-        break;
-    default:
-        break;
-    }
 }
 
 void Simulation::refresh(void)

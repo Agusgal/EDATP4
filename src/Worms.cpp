@@ -4,7 +4,7 @@ Worm::Worm()
 {
 	this->posX = 0;
 	this->posY = 0;
-	this->state = 0;
+	this->state = IDLE;
 	this->sprite = NULL;
 	this->frameCount = 0;
 }
@@ -34,9 +34,19 @@ bool Worm::setSprite(std::string path)
 
 void Worm::startMovingLeft(void)
 {
+	if (state == IDLE)
+	{
+		
+	
+	}
+	
 	state = START_MOVING_LEFT;
 }
 
+void Worm::startMovingRight(void)
+{
+	//Things
+}
 
 void Worm::update(void)
 {
@@ -68,7 +78,7 @@ void Worm::update(void)
 		else if (frameCount < 50)
 		{
 			walk(STEP);
-			setPrite(spritePath(frameCount - 33, WALK));
+			setSprite(spritePath(frameCount - 33, WALK));
 			frameCount++;
 		}
 		else:

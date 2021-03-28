@@ -12,12 +12,18 @@ public:
 	Worm();
 
 	bool setSprite(std::string sprite);
-	void setState(int state);
 	void setPosition(int x, int y);
+
+	float getPosition(int pos);
 
 	void startMovingLeft(void);
 	void startMovingRight(void);
 	void startJumping(void);
+	
+	void stopMovingLeft(void);
+	void stopMovingRight(void);
+	void stopJumping(void);
+
 	void update(void);
 
 	ALLEGRO_BITMAP* getSprite(void);
@@ -28,8 +34,9 @@ private:
 	int direction;
 	int frameCount;
 	ALLEGRO_BITMAP* sprite;
+	int completedWalk;
 
-
+	void changeState(int newState);
 	void walk(void);
 	void jump(void);
 };

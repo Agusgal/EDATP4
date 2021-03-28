@@ -1,4 +1,5 @@
 #include "Config.h"
+
 /**********************************************
 SPRITEPATH
 Funcion que crea la ruta de acceso para que los sprte puedan cargarse correctamente
@@ -10,7 +11,6 @@ Retorna: string, devuelve la ruta en un string
 **********************************************/
 std::string spritePath(int frameNum, int action)
 {
-	ALLEGRO_BITMAP* sprite; 
 	std::string path = "";
 	if (action == WALK)
 	{

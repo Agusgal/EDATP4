@@ -6,16 +6,17 @@
 #include <iostream>
 #include <string>
 
+enum pos {POS_X, POS_Y};
 enum action {WALK, JUMP};
-enum states { IDLE, START_MOVING_RIGHT, START_MOVING_LEFT, START_JUMPING, MOVE_RIGHT, MOVE_LEFT, MOVE_JUMP, STATES_N };
-enum directions { LEFT, RIGHT };
+enum states {IDLE, START_MOVING_RIGHT, START_MOVING_LEFT, START_JUMPING, MOVE_RIGHT, MOVE_LEFT, MOVE_JUMP, STOP_MOVING_RIGHT, STOP_MOVING_LEFT, STATES_N};
+enum directions {LEFT, RIGHT};
 
 
-#define DISPLAY_WIDTH 1920
-#define DISPLAY_HEIGHT 696
-#define STAR_RING	701
-#define FINISH_RING	1212
-#define FPS 50
+#define DISPLAY_WIDTH     1920
+#define DISPLAY_HEIGHT    696
+#define START_RING	      701
+#define FINISH_RING	      1212
+#define FPS               50
 
 #define START_POSITION_X	955		
 #define START_POSITION_Y	616
@@ -26,7 +27,6 @@ enum directions { LEFT, RIGHT };
 #define SPEED		4.5
 #define GRAVITY		0.24
 #define ANGLE		1.047197551
-
 
 
 #define DEBUG 

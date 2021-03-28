@@ -18,9 +18,13 @@ Simulation::Simulation()
     this->display = NULL;
     this->queue = NULL;
     this->simTimer = NULL;
+    this->background = NULL;
     this->running = true;
     this->ev = { 0 };
     this->fps = FPS;
+
+    this->worm1 = Worm();
+    this->worm2 = Worm();
 }
 
 /**********************************************
@@ -115,7 +119,7 @@ bool Simulation::initTimer()
     simTimer = al_create_timer(1 / fps);
     if (!simTimer)
     {
-        fprintf(stderr, "Failed to create Timer!\n");
+        fprintf(stderr, "Failed to create simulation Timer!\n");
         return true;
     }
     return false;
@@ -128,7 +132,7 @@ Funcion que inicializa los eventos de allegro
 
 Recibe : void
 
-Retorna: bool, siendo False el indicador de uque no se pudo crear la cola
+Retorna: bool, siendo False el indicador de que no se pudo crear la cola
 
 **********************************************/
 bool Simulation::initEvents()
@@ -295,12 +299,42 @@ void Simulation::startMoving(void)
 
 }
 
+
+void Simulation::stopMoving(void)
+{
+    switch (ev.keyboard.keycode)
+    {
+    case ALLEGRO_KEY_D:
+        worm1.stopMovingRight();
+        break;
+    case ALLEGRO_KEY_A:
+        worm1.stopMovingLeft();
+        break;
+    case ALLEGRO_KEY_W:
+        worm1.startJumping();
+        break;
+    case ALLEGRO_KEY_RIGHT:
+        worm2.stopMovingRight();
+        break;
+    case ALLEGRO_KEY_LEFT:
+        worm2.stopMovingLeft();
+        break;
+    case ALLEGRO_KEY_UP:
+        worm2.startJumping();
+        break;
+
+    default:
+        break;
+    }
+}
+
+
 void Simulation::refresh(void)
 {
     worm1.update();
     worm2.update();
     this->draw(); 
-    //flip display
+    al_flip_display();
 }
 
 /**********************************************
@@ -316,8 +350,8 @@ void Simulation::draw(void)
 {
     al_draw_bitmap(background, 0, 0, 0);//falta cargasr los sprites
     
-    al_draw_bitmap(worm1.getSprite(), );//faltan coordenadas en x, y
-    al_draw_bitmap(worm2.getSprite(), );//faltan coordenadas en x, y
+    al_draw_bitmap(worm1.getSprite(), worm1.getPosition(POS_X), worm1.getPosition(POS_Y), 0);//faltan coordenadas en x, y
+    al_draw_bitmap(worm2.getSprite(), worm2.getPosition(POS_X), worm2.getPosition(POS_Y), 0);//faltan coordenadas en x, y
 
 
 }

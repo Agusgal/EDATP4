@@ -1,5 +1,5 @@
 #ifndef SIMULATION_H
-#define SIMULATION_h
+#define SIMULATION_H
 
 #include <iostream>
 
@@ -21,7 +21,7 @@ public:
 	bool getEvent(void);
 	void dispatcher(void);
 	void destroyAll();
-	
+
 private:
 	int displayWidth;
 	int displayHeight;
@@ -44,8 +44,8 @@ private:
 	bool initEvents(void);
 	bool loadBackground(void);
 
-	void startMoving();
-	void stopMoving();
+	void startMoving(void);
+	void stopMoving(void);
 
 	void refresh(void);
 	void draw(void);

@@ -73,6 +73,12 @@ ALLEGRO_BITMAP* Worm::getSprite(void)
 	return this->sprite;
 }
 
+
+int Worm::getDirection(void)
+{
+	return this->direction;
+}
+
 /**********************************************
 CHANGESTATE
 cambia al estado ingresado
@@ -98,11 +104,8 @@ Retorna: void
 **********************************************/
 void Worm::startMovingLeft(void)
 {
-	if (state == IDLE)
-	{
-		this->changeState(START_MOVING_LEFT);
-		direction = LEFT;
-	}
+	this->changeState(START_MOVING_LEFT);
+	direction = LEFT;
 }
 
 /**********************************************
@@ -204,6 +207,7 @@ void Worm::update(void)
 		{
 			this->changeState(MOVE_LEFT);
 		}
+		break;
 	case START_MOVING_RIGHT:
 		if (frameCount < 5)
 		{
@@ -220,11 +224,11 @@ void Worm::update(void)
 		if (frameCount < 22)
 		{
 			frameCount++;
-			if (frameCount > 16)
+			if (frameCount > 16 && frameCount != 22)
 			{
 				setSprite(spritePath(frameCount - 5 - 1, WALK));
 			}
-			else if(frameCount != 22)
+			else if(frameCount <= 16)
 			{
 				setSprite(spritePath(frameCount - 5, WALK));
 			}
@@ -238,11 +242,11 @@ void Worm::update(void)
 		else if (frameCount < 36)
 		{
 			frameCount++;
-			if (frameCount > 31)
+			if (frameCount > 31 && frameCount != 36)
 			{
 				setSprite(spritePath(frameCount - 19 - 1, WALK));
 			}
-			else if (frameCount != 36)
+			else if (frameCount <= 31)
 			{
 				setSprite(spritePath(frameCount - 19, WALK));
 			}
@@ -256,11 +260,11 @@ void Worm::update(void)
 		else if (frameCount < 50)
 		{
 			frameCount++;
-			if (frameCount > 44)
+			if (frameCount > 44 && frameCount != 50)
 			{
 				setSprite(spritePath(frameCount - 33 - 1, WALK));
 			}
-			else if (frameCount != 50)
+			else if (frameCount <= 44)
 			{
 				setSprite(spritePath(frameCount - 33, WALK));
 			}
@@ -288,11 +292,11 @@ void Worm::update(void)
 		{
 			frameCount++;
 
-			if (frameCount > 16)
+			if (frameCount > 16 && frameCount != 22)
 			{
 				setSprite(spritePath(frameCount - 5 - 1, WALK));
 			}
-			else if (frameCount != 22)
+			else if (frameCount <= 16)
 			{
 				setSprite(spritePath(frameCount - 5, WALK));
 			}
@@ -306,11 +310,11 @@ void Worm::update(void)
 		else if (frameCount < 36)
 		{
 			frameCount++;
-			if (frameCount > 31)
+			if (frameCount > 31 && frameCount != 36)
 			{
 				setSprite(spritePath(frameCount - 19 - 1, WALK));
 			}
-			else if (frameCount != 36)
+			else if (frameCount <= 31)
 			{
 				setSprite(spritePath(frameCount - 19, WALK));
 			}
@@ -324,11 +328,11 @@ void Worm::update(void)
 		else if (frameCount < 50)
 		{
 			frameCount++;
-			if (frameCount > 44)
+			if (frameCount > 44 && frameCount != 50)
 			{
 				setSprite(spritePath(frameCount - 33 - 1, WALK));
 			}
-			else if (frameCount != 50)
+			else if (frameCount <= 44)
 			{
 				setSprite(spritePath(frameCount - 33, WALK));
 			}

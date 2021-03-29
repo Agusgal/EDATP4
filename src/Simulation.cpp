@@ -196,6 +196,9 @@ bool Simulation::initAll(void)
     this->worm1.setSprite(path);
     this->worm2.setSprite(path);
 
+    this->worm1.setPosition(START_POSITION_X2, START_POSITION_Y);
+    this->worm2.setPosition(START_POSITION_X, START_POSITION_Y);
+
     return false;
 }
 
@@ -351,10 +354,11 @@ Retorna: void
 **********************************************/
 void Simulation::draw(void)
 {
-    al_draw_bitmap(background, 0, 0, 0);//falta cargasr los sprites
+    al_draw_bitmap(background, 0, 0, 0);
     
-    al_draw_bitmap(worm1.getSprite(), worm1.getPosition(POS_X), worm1.getPosition(POS_Y), 0);//faltan coordenadas en x, y
-    //al_draw_bitmap(worm2.getSprite(), worm2.getPosition(POS_X), worm2.getPosition(POS_Y), 0);//faltan coordenadas en x, y
+    
+    al_draw_bitmap(worm1.getSprite(), worm1.getPosition(POS_X), worm1.getPosition(POS_Y), worm1.getDirection());
+    al_draw_bitmap(worm2.getSprite(), worm2.getPosition(POS_X), worm2.getPosition(POS_Y), worm2.getDirection());
 
 
 }

@@ -27,6 +27,7 @@ public:
 	void update(void);
 
 	ALLEGRO_BITMAP* getSprite(void);
+	int getDirection(void);
 
 private:
 	Coordinates point;

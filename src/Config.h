@@ -18,7 +18,8 @@ enum directions {LEFT, RIGHT};
 #define FINISH_RING	      1212
 #define FPS               50
 
-#define START_POSITION_X	955		
+#define START_POSITION_X	955
+#define START_POSITION_X2	800
 #define START_POSITION_Y	616
 
 #define STEP_RIGHT_LEFT		9

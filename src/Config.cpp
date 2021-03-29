@@ -17,6 +17,8 @@ std::string spritePath(int frameNum, int action)
 		path += "res\\wwalking\\wwalk-F";
 		path += std::to_string(frameNum);
 		path += ".png";
+		
+		std::cout << path << std::endl;
 	}
 
 	if (action == JUMP)

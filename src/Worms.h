@@ -34,7 +34,7 @@ private:
 	int direction;
 	int frameCount;
 	ALLEGRO_BITMAP* sprite;
-	int completedWalk;
+	ALLEGRO_PATH* path;
 
 	void changeState(int newState);
 	void walk(void);

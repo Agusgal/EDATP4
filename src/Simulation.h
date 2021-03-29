@@ -25,7 +25,7 @@ public:
 private:
 	int displayWidth;
 	int displayHeight;
-	int fps;
+	double fps;
 
 	bool running;
 	//Capaz se puede hacer una lista

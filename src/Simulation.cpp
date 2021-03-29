@@ -166,30 +166,35 @@ Retorna: bool, siendo False el indicador de que las incializaciones fueron corre
 **********************************************/
 bool Simulation::initAll(void)
 {
-    if (!initAllegro())
+    if (initAllegro())
     {
         return true;
     }
 
-    if (!initDisplay())
+    if (initDisplay())
     {
         return true;
     }
 
-    if (!initEvents())
+    if (initTimer())
     {
         return true;
     }
 
-    if (!initTimer())
+    if (loadBackground())
     {
         return true;
     }
 
-    if (!loadBackground())
+    if (initEvents())
     {
         return true;
     }
+
+    al_start_timer(simTimer);
+    std::string path = "res\\wwalking\\wwalk-F1.png";
+    this->worm1.setSprite(path);
+    this->worm2.setSprite(path);
 
     return false;
 }
@@ -205,7 +210,7 @@ Retorna: bool, siendo False el indicador de que le bitmap no se pudo cargar
 **********************************************/
 bool Simulation::loadBackground(void)
 {
-    background = al_load_bitmap("res\\Scenario.jpg");
+    background = al_load_bitmap("res\\Scenario.png");
     if (!background) {
         fprintf(stderr, "Failed to load background scenario bitmap!\n");
         return true;
@@ -349,7 +354,7 @@ void Simulation::draw(void)
     al_draw_bitmap(background, 0, 0, 0);//falta cargasr los sprites
     
     al_draw_bitmap(worm1.getSprite(), worm1.getPosition(POS_X), worm1.getPosition(POS_Y), 0);//faltan coordenadas en x, y
-    al_draw_bitmap(worm2.getSprite(), worm2.getPosition(POS_X), worm2.getPosition(POS_Y), 0);//faltan coordenadas en x, y
+    //al_draw_bitmap(worm2.getSprite(), worm2.getPosition(POS_X), worm2.getPosition(POS_Y), 0);//faltan coordenadas en x, y
 
 
 }

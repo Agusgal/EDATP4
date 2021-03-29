@@ -49,9 +49,9 @@ void Coordinates::checkSpace(void)
 	{
 		x = START_RING;
 	}
-	else if (x > FINISH_RING)
+	else if (x + WORM_WIDTH > FINISH_RING)
 	{
-		x = FINISH_RING;
+		x = FINISH_RING - WORM_WIDTH;
 	}
 	if (y < START_POSITION_Y)
 	{

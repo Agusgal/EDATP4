@@ -356,11 +356,8 @@ void Simulation::draw(void)
 {
     al_draw_bitmap(background, 0, 0, 0);
     
-    
-    al_draw_bitmap(worm1.getSprite(), worm1.getPosition(POS_X), worm1.getPosition(POS_Y), worm1.getDirection());
+    al_draw_bitmap(worm1.getSprite(), worm1.getPosition(POS_X), worm1.getPosition(POS_Y), worm1.getDirection());//get direction funciona porque el flag de allegro para flipear es igual a nuestro define de direccion
     al_draw_bitmap(worm2.getSprite(), worm2.getPosition(POS_X), worm2.getPosition(POS_Y), worm2.getDirection());
-
-
 }
 
 /**********************************************

@@ -183,7 +183,14 @@ void Worm::startJumping(void)
 
 void Worm::stopJumping(void)
 {
-	//do stuff
+	if (state == START_JUMPING)
+	{
+		this->changeState(IDLE);
+	}
+	else if (state == MOVE_JUMP)
+	{
+		this->changeState(STOP_JUMPING);
+	}
 }
 
 /**********************************************
@@ -361,9 +368,11 @@ void Worm::update(void)
 		}
 		else
 		{
-			state = JUMP;
+			this->changeState(MOVE_JUMP);
 		}
 		break;
+	
+	case STOP_JUMPING:
 	case MOVE_JUMP:
 		if (frameCount < 15)
 		{
@@ -380,11 +389,13 @@ void Worm::update(void)
 			jump();
 		}
 		break;
+	
 	case IDLE:
 		{
 			frameCount = 0;
 		}
 		break;
+	
 	default:
 		break;
 	}	
@@ -408,7 +419,6 @@ void Worm::walk(void)
 	}
 	point.translate(step);
 	point.checkSpace();
-	
 }
 
 /**********************************************

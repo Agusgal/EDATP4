@@ -295,8 +295,6 @@ void Simulation::startMoving(void)
     default:
         break;
     }
-    
-
 }
 
 

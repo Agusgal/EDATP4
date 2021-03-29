@@ -217,30 +217,57 @@ void Worm::update(void)
 	
 	case STOP_MOVING_LEFT:
 	case MOVE_LEFT:
-		if (frameCount < 19)
+		if (frameCount < 22)
 		{
 			frameCount++;
-			setSprite(spritePath(frameCount - 5, WALK));
-			if (frameCount == 19)
+			if (frameCount > 16)
 			{
+				setSprite(spritePath(frameCount - 5 - 1, WALK));
+			}
+			else if(frameCount != 22)
+			{
+				setSprite(spritePath(frameCount - 5, WALK));
+			}
+
+			if (frameCount == 22)
+			{
+				setSprite(spritePath(4, WALK));
 				walk();
 			}
 		}
-		else if (frameCount < 33)
+		else if (frameCount < 36)
 		{
 			frameCount++;
-			setSprite(spritePath(frameCount - 19, WALK));
-			if (frameCount == 33)
+			if (frameCount > 31)
 			{
+				setSprite(spritePath(frameCount - 19 - 1, WALK));
+			}
+			else if (frameCount != 36)
+			{
+				setSprite(spritePath(frameCount - 19, WALK));
+			}
+			
+			if (frameCount == 36)
+			{
+				setSprite(spritePath(4, WALK));
 				walk();
 			}
 		}
 		else if (frameCount < 50)
 		{
 			frameCount++;
-			setSprite(spritePath(frameCount - 33, WALK));
+			if (frameCount > 44)
+			{
+				setSprite(spritePath(frameCount - 33 - 1, WALK));
+			}
+			else if (frameCount != 50)
+			{
+				setSprite(spritePath(frameCount - 33, WALK));
+			}
+			
 			if (frameCount == 50)
 			{
+				setSprite(spritePath(4, WALK));
 				walk();
 				frameCount = 0;
 				if (state == MOVE_LEFT)
@@ -257,30 +284,58 @@ void Worm::update(void)
 
 	case STOP_MOVING_RIGHT:	
 	case MOVE_RIGHT:
-		if (frameCount < 19)
+		if (frameCount < 22)
 		{
 			frameCount++;
-			setSprite(spritePath(frameCount - 5, WALK));
-			if (frameCount == 19)
+
+			if (frameCount > 16)
 			{
+				setSprite(spritePath(frameCount - 5 - 1, WALK));
+			}
+			else if (frameCount != 22)
+			{
+				setSprite(spritePath(frameCount - 5, WALK));
+			}
+			
+			if (frameCount == 22)
+			{
+				setSprite(spritePath(4, WALK));
 				walk();
 			}
 		}
-		else if (frameCount < 33)
+		else if (frameCount < 36)
 		{
 			frameCount++;
-			setSprite(spritePath(frameCount - 19, WALK));
-			if (frameCount == 33)
+			if (frameCount > 31)
 			{
+				setSprite(spritePath(frameCount - 19 - 1, WALK));
+			}
+			else if (frameCount != 36)
+			{
+				setSprite(spritePath(frameCount - 19, WALK));
+			}
+
+			if (frameCount == 36)
+			{
+				setSprite(spritePath(4, WALK));
 				walk();
 			}
 		}
 		else if (frameCount < 50)
 		{
 			frameCount++;
-			setSprite(spritePath(frameCount - 33, WALK));
+			if (frameCount > 44)
+			{
+				setSprite(spritePath(frameCount - 33 - 1, WALK));
+			}
+			else if (frameCount != 50)
+			{
+				setSprite(spritePath(frameCount - 33, WALK));
+			}
+			
 			if (frameCount == 50)
 			{
+				setSprite(spritePath(4, WALK));
 				walk();
 				frameCount = 0;
 				if (state == MOVE_RIGHT)

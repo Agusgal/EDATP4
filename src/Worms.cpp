@@ -374,19 +374,38 @@ void Worm::update(void)
 	
 	case STOP_JUMPING:
 	case MOVE_JUMP:
-		if (frameCount < 15)
+		if (frameCount < 9)
 		{
 			frameCount++;
 			setSprite(spritePath(frameCount - 5, JUMP));
 		}
-		else if (frameCount < 50)
+		else if (frameCount < 42)//42 porque calcule 33 frames de salto
 		{
-			if (frameCount == 15)
+			frameCount++;
+			setSprite(spritePath(5, JUMP));
+			//Aca iria funcion de jump, donde se mueve un poco cada frame segun la ecuacion de salto
+		}
+		else if (frameCount < 48)
+		{
+			frameCount++;
+			if (frameCount == 48)
 			{
 				setSprite(spritePath(1, JUMP));
+				//capaz falta un jump aca
+				frameCount = 0;
+				if (state == MOVE_JUMP)
+				{
+					this->changeState(START_JUMPING);
+				}
+				else
+				{
+					this->changeState(IDLE);
+				}
 			}
-			frameCount++;
-			jump();
+			else
+			{
+				setSprite(spritePath(frameCount - 37, JUMP));
+			}
 		}
 		break;
 	

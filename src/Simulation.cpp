@@ -317,7 +317,7 @@ void Simulation::stopMoving(void)
         worm1.stopMovingLeft();
         break;
     case ALLEGRO_KEY_W:
-        worm1.startJumping();
+        worm1.stopJumping();
         break;
     case ALLEGRO_KEY_RIGHT:
         worm2.stopMovingRight();
@@ -326,7 +326,7 @@ void Simulation::stopMoving(void)
         worm2.stopMovingLeft();
         break;
     case ALLEGRO_KEY_UP:
-        worm2.startJumping();
+        worm2.stopJumping();
         break;
 
     default:

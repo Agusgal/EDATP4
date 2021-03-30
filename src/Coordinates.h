@@ -17,6 +17,7 @@ public:
 
 	void translate(float offsetX, float offsetY = 0);
 
+	bool checkSpaceX(void);
 	void checkSpace(void);
 
 private:

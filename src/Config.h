@@ -23,7 +23,7 @@ enum directions {LEFT, RIGHT};
 #define START_POSITION_Y	616
 
 #define STEP_RIGHT_LEFT		9
-#define STEP_X_JUMP			2.25
+#define STEP_X_JUMP			4.28
 
 #define WORM_WIDTH	60
 

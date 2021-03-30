@@ -43,6 +43,11 @@ void Coordinates::translate(float offsetX, float offsetY)
 	y += offsetY;
 }
 
+bool Coordinates::checkSpaceX(void)
+{
+	return ((x > START_RING) && (x + WORM_WIDTH < FINISH_RING));
+}
+
 void Coordinates::checkSpace(void)
 {
 	if (x < START_RING)
@@ -53,7 +58,7 @@ void Coordinates::checkSpace(void)
 	{
 		x = FINISH_RING - WORM_WIDTH;
 	}
-	if (y < START_POSITION_Y)
+	if (y > START_POSITION_Y)
 	{
 		y = START_POSITION_Y;
 	}

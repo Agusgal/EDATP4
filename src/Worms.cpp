@@ -104,8 +104,11 @@ Retorna: void
 **********************************************/
 void Worm::startMovingLeft(void)
 {
-	this->changeState(START_MOVING_LEFT);
-	direction = LEFT;
+	if (state == IDLE)
+	{
+		this->changeState(START_MOVING_LEFT);
+		direction = LEFT;
+	}
 }
 
 /**********************************************
@@ -119,8 +122,11 @@ Retorna: void
 **********************************************/
 void Worm::startMovingRight(void)
 {
-	this->changeState(START_MOVING_RIGHT);
-	direction = RIGHT;
+	if (state == IDLE)
+	{
+		this->changeState(START_MOVING_RIGHT);
+		direction = RIGHT;
+	}
 }
 
 /**********************************************
@@ -452,17 +458,19 @@ Retorna: void
 void Worm::jump(void)
 {
 	float stepX = STEP_X_JUMP; //El step esta definido en Config.h.
-	float stepY = GRAVITY * powf((frameCount - 9), 2);	//Ecuacion caida libre.
+	float stepY = SPEED * sin(ANGLE) * (frameCount - 9) - GRAVITY * powf((frameCount - 9), 2);// -0.5 * GRAVITY * powf((frameCount - 9), 2);	//Ecuacion caida libre.
+	
 	if (direction == LEFT)	//En caso de moverse hacia la izquierda, se modifica sentido.
 	{
 		stepX *= -1;
 	}
-	if (point.checkSpaceX())	//Caso movimiento dentro de ring, es tiro parabolico.
-	{
-		stepY -= SPEED * sin(ANGLE) * (frameCount - 9);
-	}
 
-	point.translate(stepX, stepY);	//Se traslada gusano
+	/*if (point.checkSpaceX())	//Caso movimiento dentro de ring, es tiro parabolico.
+	{
+		stepY = SPEED * sin(ANGLE) * (frameCount - 9) - 0.5 * GRAVITY * powf((frameCount - 9), 2);
+	}*/
+
+	point.translate(stepX, -stepY);	//Se traslada gusano
 	point.checkSpace();	//Y en caso que el desplazamiento exceda el area, se lo mantiene dentro del ring.
 
 	if (point.getY() == START_POSITION_Y)	//Caso de haber aterrizado, finaliza salto.

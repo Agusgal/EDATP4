@@ -461,8 +461,12 @@ Retorna: void
 void Worm::jump(void)
 {
 	float stepX = STEP_X_JUMP; //El step esta definido en Config.h.
-	float stepY = SPEED * sin(ANGLE) * (frameCount - 9) - GRAVITY * powf((frameCount - 9), 2);// -0.5 * GRAVITY * powf((frameCount - 9), 2);	//Ecuacion caida libre.
+	float stepY = SPEED * sin(ANGLE) * (frameCount - 9) -  0.5 * GRAVITY * powf((frameCount - 9), 2);// -0.5 * GRAVITY * powf((frameCount - 9), 2);	//Ecuacion caida libre.
 	
+	float previousStepY = SPEED * sin(ANGLE) * (frameCount - 1 - 9) - 0.5 * GRAVITY * powf((frameCount - 1 - 9), 2);
+
+	float t = stepY - previousStepY;
+
 	if (direction == LEFT)	//En caso de moverse hacia la izquierda, se modifica sentido.
 	{
 		stepX *= -1;
@@ -473,11 +477,11 @@ void Worm::jump(void)
 		stepY = SPEED * sin(ANGLE) * (frameCount - 9) - 0.5 * GRAVITY * powf((frameCount - 9), 2);
 	}*/
 
-	point.translate(stepX, -stepY);	//Se traslada gusano
+	point.translate(stepX, -t);	//Se traslada gusano
 	point.checkSpace();	//Y en caso que el desplazamiento exceda el area, se lo mantiene dentro del ring.
 
-	if (point.getY() == START_POSITION_Y)	//Caso de haber aterrizado, finaliza salto.
+	/*if (point.getY() == START_POSITION_Y)	//Caso de haber aterrizado, finaliza salto.
 	{
 		frameCount = 42;
-	}
+	}*/
 }

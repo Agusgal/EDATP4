@@ -32,7 +32,7 @@ enum directions {LEFT, RIGHT};
 #define ANGLE		1.047197551
 
 
-#define DEBUG 
+#define DEBUG
 
 
 std::string spritePath(int frameNum, int action);

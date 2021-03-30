@@ -184,7 +184,10 @@ Retorna: void
 **********************************************/
 void Worm::startJumping(void)
 {
-	this->changeState(START_JUMPING);
+	if (state == IDLE)
+	{
+		this->changeState(START_JUMPING);
+	}
 }
 
 void Worm::stopJumping(void)

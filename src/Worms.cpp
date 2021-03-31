@@ -388,16 +388,16 @@ void Worm::update(void)
 			frameCount++;
 			setSprite(spritePath(frameCount - 5, JUMP));
 		}
-		else if (frameCount < 42)
+		else if (frameCount < 9 + JUMP_DURATION)
 		{
 			frameCount++;
 			setSprite(spritePath(5, JUMP));
 			this->jump();
 		}
-		else if (frameCount < 48)
+		else if (frameCount < 9 + JUMP_DURATION + 6)
 		{
 			frameCount++;
-			if (frameCount == 48)
+			if (frameCount == 9 + JUMP_DURATION + 6)
 			{
 				setSprite(spritePath(1, JUMP));
 				//capaz falta un jump aca
@@ -413,7 +413,7 @@ void Worm::update(void)
 			}
 			else
 			{
-				setSprite(spritePath(frameCount - 37, JUMP));
+				setSprite(spritePath(frameCount - JUMP_DURATION - 4, JUMP));
 			}
 		}
 		break;
@@ -465,23 +465,13 @@ void Worm::jump(void)
 	
 	float previousStepY = SPEED * sin(ANGLE) * (frameCount - 1 - 9) - 0.5 * GRAVITY * powf((frameCount - 1 - 9), 2);
 
-	float t = stepY - previousStepY;
+	float step = stepY - previousStepY;
 
 	if (direction == LEFT)	//En caso de moverse hacia la izquierda, se modifica sentido.
 	{
 		stepX *= -1;
 	}
 
-	/*if (point.checkSpaceX())	//Caso movimiento dentro de ring, es tiro parabolico.
-	{
-		stepY = SPEED * sin(ANGLE) * (frameCount - 9) - 0.5 * GRAVITY * powf((frameCount - 9), 2);
-	}*/
-
-	point.translate(stepX, -t);	//Se traslada gusano
+	point.translate(stepX, -step);	//Se traslada gusano
 	point.checkSpace();	//Y en caso que el desplazamiento exceda el area, se lo mantiene dentro del ring.
-
-	/*if (point.getY() == START_POSITION_Y)	//Caso de haber aterrizado, finaliza salto.
-	{
-		frameCount = 42;
-	}*/
 }

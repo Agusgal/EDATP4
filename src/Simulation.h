@@ -28,7 +28,6 @@ private:
 	double fps;
 
 	bool running;
-	//Capaz se puede hacer una lista
 	Worm worm1;
 	Worm worm2;
 
@@ -49,9 +48,6 @@ private:
 
 	void refresh(void);
 	void draw(void);
-
-	void closeDisplay(void);
-
 };
 
 

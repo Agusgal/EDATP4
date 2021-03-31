@@ -372,10 +372,12 @@ Retorna: void
 **********************************************/
 void Simulation:: destroyAll()
 {
-    al_destroy_display(display);
-    al_destroy_event_queue(queue);
-    al_destroy_timer(simTimer);
     al_destroy_bitmap(background);
     al_destroy_bitmap(worm1.getSprite());
     al_destroy_bitmap(worm2.getSprite());
+    
+    al_destroy_display(display);
+    al_destroy_event_queue(queue);
+    al_destroy_timer(simTimer);
+    
 }

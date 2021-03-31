@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <cmath>
 
 enum pos {POS_X, POS_Y};
 enum action {WALK, JUMP};
@@ -31,11 +32,11 @@ enum directions {LEFT, RIGHT};
 #define GRAVITY		0.24
 #define ANGLE		1.047197551
 
+#define JUMP_DURATION std::ceil((2 * SPEED * std::sin(ANGLE)) / (GRAVITY))
 
 #define DEBUG
 
 
 std::string spritePath(int frameNum, int action);
-
 
 #endif // !CONFIG_H
